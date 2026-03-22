@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Crabby Civilization - Home</title>
+
+<style>
+* {margin:0; padding:0; box-sizing:border-box;}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #020617;
+  color: white;
+}
+
+/* =========================
+   NAVBAR (Prite Style)
+========================= */
+.navbar {
+  position: fixed;
+  top: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 1100px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 12px 20px;
+  border-radius: 16px;
+
+  background: rgba(10,15,25,0.85);
+  backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(0,212,255,0.2);
+  box-shadow: 0 0 25px rgba(0,212,255,0.15);
+
+  z-index: 1000;
+}
+
+.logo {
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:bold;
+}
+
+.logo-icon {
+  width:30px;
+  height:30px;
+  border-radius:8px;
+  background:#00d4ff;
+}
+
+.nav-links {
+  display:flex;
+  gap:25px;
+}
+
+.nav-links a {
+  color:#00d4ff;
+  text-decoration:none;
+  font-weight:500;
+  opacity:0.8;
+  transition:0.3s;
+}
+
+.nav-links a:hover {
+  opacity:1;
+  text-shadow:0 0 10px #00d4ff;
+}
+
+.nav-btn {
+  padding:8px 16px;
+  border-radius:10px;
+  background:#00d4ff;
+  color:black;
+  font-weight:bold;
+  border:none;
+  cursor:pointer;
+}
+.events-section {
+  padding: 140px 0;
+  text-align: center;
+}
+
+/* HEADER */
+.events-header h2 {
+  font-size: 42px;
+  color: white;
+}
+
+.events-header span {
+  color: #00d4ff;
+  text-shadow: 0 0 20px rgba(0,212,255,0.6);
+}
+
+.section-label {
+  color: #00d4ff;
+  letter-spacing: 2px;
+  font-size: 12px;
+}
+
+.section-desc {
+  color: #9aa4b2;
+  max-width: 600px;
+  margin: 10px auto 40px;
+}
+
+/* FILTERS */
+.event-filters {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.event-filters button {
+  background: rgba(0,212,255,0.1);
+  border: 1px solid rgba(0,212,255,0.2);
+  color: #00d4ff;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.event-filters .active {
+  background: #00d4ff;
+  color: black;
+}
+
+/* FEATURED */
+.featured-event {
+  max-width: 1000px;
+  margin: 0 auto 60px;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+}
+
+.featured-event img {
+  width: 100%;
+  display: block;
+}
+
+.featured-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 30px;
+  background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+  text-align: left;
+}
+
+.badge {
+  background: rgba(0,255,200,0.2);
+  color: #00ffaa;
+  padding: 4px 10px;
+  border-radius: 10px;
+  font-size: 12px;
+}
+
+/* GRID */
+.events-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.column-title {
+  text-align: left;
+  margin-bottom: 20px;
+  color: #cbd5e1;
+}
+
+/* CARDS */
+.event-card {
+  background: rgba(15,20,35,0.6);
+  border: 1px solid rgba(0,212,255,0.15);
+  border-radius: 14px;
+  padding: 20px;
+  text-align: left;
+  transition: 0.3s;
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 25px rgba(0,212,255,0.2);
+}
+
+.event-card h4 {
+  color: white;
+  margin-bottom: 10px;
+}
+
+.event-card p {
+  color: #9aa4b2;
+  font-size: 14px;
+}
+
+.event-meta {
+  margin: 15px 0;
+  font-size: 13px;
+  color: #6b7280;
+  display: flex;
+  gap: 15px;
+}
+
+/* TAGS */
+.event-tags span {
+  background: rgba(255,255,255,0.05);
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-size: 12px;
+  margin-right: 6px;
+}
+
+.completed {
+  color: #94a3b8;
+}
+
+.soon {
+  color: #facc15;
+}
+
+/* BUTTON */
+.join-btn {
+  margin-top: 15px;
+  background: linear-gradient(135deg, #00d4ff, #00ffaa);
+  border: none;
+  padding: 10px;
+  width: 100%;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* =========================
+   HERO TRANSITION SPACE
+========================= */
+.spacer {
+  height: 120px;
+}
+
+/* =========================
+   ABOUT SECTION
+========================= */
+.about {
+  padding: 120px 20px;
+  text-align:center;
+  position:relative;
+}
+
+.about::before {
+  content:"";
+  position:absolute;
+  top:-200px;
+  left:0;
+  width:100%;
+  height:300px;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(0,212,255,0.15),
+    transparent
+  );
+}
+
+.about-container {
+  max-width: 800px;
+  margin: auto;
+}
+
+.about-sub {
+  color:#22d3ee;
+  letter-spacing:3px;
+  font-size:13px;
+  margin-bottom:15px;
+}
+
+.about-title {
+  font-size:42px;
+  margin-bottom:25px;
+}
+
+.about-title span {
+  color:#22d3ee;
+  text-shadow:0 0 15px #22d3ee;
+}
+
+.about-desc {
+  opacity:0.7;
+  line-height:1.7;
+  margin-bottom:20px;
+}
+
+/* =========================
+   FEATURES SECTION
+========================= */
+.features {
+  padding: 100px 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+/* image */
+.feature-image {
+  width: 500px;
+  max-width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 40px rgba(0,212,255,0.15);
+}
+
+.feature-image img {
+  width:100%;
+  display:block;
+}
+
+/* grid */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 220px);
+  gap: 25px;
+}
+
+.card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(34,211,238,0.2);
+  padding: 20px;
+  border-radius: 15px;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 20px rgba(34,211,238,0.4);
+}
+
+.card h3 {
+  margin-bottom:10px;
+}
+
+.card p {
+  font-size:14px;
+  opacity:0.7;
+}
+
+/* =========================
+   CTA SECTION
+========================= */
+.cta {
+  text-align:center;
+  padding:120px 20px;
+}
+
+.cta h2 {
+  font-size:36px;
+  margin-bottom:20px;
+}
+
+.cta span {
+  color:#00d4ff;
+  text-shadow:0 0 15px #00d4ff;
+}
+
+.cta button {
+  padding:14px 30px;
+  border-radius:10px;
+  border:none;
+  background:#00d4ff;
+  color:black;
+  font-weight:bold;
+  cursor:pointer;
+  box-shadow:0 0 20px #00d4ff;
+  transition:0.3s;
+}
+
+.cta button:hover {
+  transform:scale(1.05);
+}
+
+/* =========================
+   FOOTER
+========================= */
+.footer {
+  text-align:center;
+  padding:30px;
+  opacity:0.5;
+  font-size:14px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+  <div class="logo">
+    <div class="logo-icon"></div>
+    Crabby Events
+  </div>
+
+  <div class="nav-links">
+    <a href="index.html">Index</a>
+    <a href="home.html">Home</a>
+    <a href="apply.html">Apply</a>
+    <a href="forms.html">Forms</a>
+    <a href="staff.html">Staff</a>
+  </div>
+
+  <button class="nav-btn">Discord</button>
+</div>
+
+<div class="spacer"></div>
+
+<!-- ABOUT -->
+<section class="about">
+  <div class="about-container">
+    <p class="about-sub">ABOUT US</p>
+
+    <h2 class="about-title">
+      What is <span>Crabby Civilization?</span>
+    </h2>
+
+    <p class="about-desc">
+      Crabby Civilization is a competitive Minecraft experience where players build empires,
+      forge alliances, and wage strategic wars in a dynamic world.
+    </p>
+
+    <p class="about-desc">
+      Every decision matters — from diplomacy to domination — shaping a living world driven by players.
+    </p>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features">
+
+  <div class="feature-image">
+    <img src="https://wallpapercave.com/wp/wp3704359.jpg">
+  </div>
+
+  <div class="feature-grid">
+    <div class="card">
+      <h3>⚔️ Warfare</h3>
+      <p>Engage in large-scale battles and dominate enemies.</p>
+    </div>
+
+    <div class="card">
+      <h3>🏰 Empires</h3>
+      <p>Build civilizations that shape the world.</p>
+    </div>
+
+    <div class="card">
+      <h3>🤝 Alliances</h3>
+      <p>Form powerful teams and control territory.</p>
+    </div>
+
+    <div class="card">
+      <h3>🌍 Living World</h3>
+      <p>Your actions influence history and outcomes.</p>
+    </div>
+  </div>
+
+</section>
+<section class="events-section">
+
+  <div class="events-header">
+    <p class="section-label">EVENTS</p>
+    <h2>Past & <span>Upcoming Events</span></h2>
+    <p class="section-desc">
+      From civilization seasons to experimental SMPs — every event shapes the world.
+    </p>
+  </div>
+
+  <!-- FILTER BUTTONS -->
+  <div class="event-filters">
+    <button class="active">All</button>
+    <button>Past Events</button>
+    <button>Upcoming</button>
+  </div>
+
+  <!-- FEATURED EVENT -->
+  <div class="featured-event">
+    <img src="images/featured-event.jpg">
+    <div class="featured-overlay">
+      <span class="badge">Featured Event</span>
+      <h3>Season II: Medieval Civilization</h3>
+      <p>Forge kingdoms, betray alliances, and conquer a living world.</p>
+    </div>
+  </div>
+
+  <!-- GRID -->
+  <div class="events-grid">
+
+    <!-- PAST -->
+    <div class="events-column">
+      <h3 class="column-title">Event Archive</h3>
+
+      <div class="event-card past">
+        <h4>Season I: 100 Players On One Island</h4>
+        <p>100 Players are stranded on one island, featuring White Lotus, Sakurano and Knight Krusaders.</p>
+
+        <div class="event-meta">
+          <span>📅 September 2025</span>
+          <span>👥 100 players</span>
+        </div>
+
+        <div class="event-tags">
+          <span>Sakurano</span>
+          <span>Survival</span>
+          <span class="completed">Completed</span>
+        </div>
+      </div>
+
+      <div class="event-card past">
+        <h4>Season II: Dictatorship and Democracy</h4>
+        <p>Dictatorship v Democracy, which will succeed?</p>
+
+        <div class="event-meta">
+          <span>📅 October 2025</span>
+          <span>👥 200 players</span>
+        </div>
+
+        <div class="event-tags">
+          <span>Arrakeen</span>
+          <span>Survival</span>
+          <span class="completed">Completed</span>
+        </div>
+      </div>
+      <div class="event-card past">
+        <h4>Season III: The Era Experiment</h4>
+        <p>Featuring 4 islands, Mount Olympus, Stone Age, Jurassic and Greek.</p>
+
+        <div class="event-meta">
+          <span>📅 january 2026</span>
+          <span>👥 200 players</span>
+        </div>
+
+        <div class="event-tags">
+          <span>Greek</span>
+          <span>Survival</span>
+          <span class="completed">Completed</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- UPCOMING -->
+    <div class="events-column">
+      <h3 class="column-title">Planned Events</h3>
+
+      <div class="event-card upcoming">
+        <h4>Season IV: The Apocolypse</h4>
+        <p>Live and survive in a toxic world!</p>
+
+        <div class="event-meta">
+          <span>📅 April 2026</span>
+          <span>👥 200 players</span>
+        </div>
+
+        <div class="event-tags">
+          <span>Civilization</span>
+          <span>Toxic</span>
+          <span class="soon">Coming Soon</span>
+        </div>
+
+        <button class="join-btn">Join Now</button>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <h2>Ready to <span>Join the War?</span></h2>
+  <button>Apply Now</button>
+</section>
+
+<!-- FOOTER -->
+<div class="footer">
+  © 2026 Crabby Civilization
+</div>
+
+</body>
+</html>

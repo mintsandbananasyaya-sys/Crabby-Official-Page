@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Staff | Crabby Events</title>
+
+<style>
+
+/* ================= GLOBAL ================= */
+body {
+  margin: 0;
+  font-family: Inter, sans-serif;
+  color: white;
+
+  background:
+    radial-gradient(circle at 20% 20%, rgba(34,211,238,0.08), transparent 40%),
+    linear-gradient(rgba(2,6,23,0.85), rgba(2,6,23,0.95)),
+    url("https://wallpapercave.com/wp/wp2564033.jpg")
+    center / cover no-repeat fixed;
+}
+
+/* ================= NAVBAR ================= */
+.navbar {
+  position: fixed;
+  top: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 1100px;
+  height: 70px;
+  padding: 0 25px;
+
+  background: rgba(10,20,40,0.7);
+  backdrop-filter: blur(12px);
+  border-radius: 14px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  box-shadow: 0 0 25px rgba(34,211,238,0.15);
+  z-index: 1000;
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links a {
+  color: #22d3ee;
+  text-decoration: none;
+}
+
+/* ================= HEADER ================= */
+.header {
+  padding: 150px 10% 60px;
+  text-align: center;
+}
+
+.header h1 {
+  font-size: 48px;
+}
+
+.header span {
+  color: #22d3ee;
+  text-shadow: 0 0 20px #22d3ee;
+}
+
+/* ================= SECTION ================= */
+.staff-section {
+  padding: 40px 10% 80px;
+}
+
+/* role title */
+.role-title {
+  margin-bottom: 20px;
+  font-size: 22px;
+  color: #9aa4b2;
+}
+
+/* grid */
+.staff-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-bottom: 50px;
+}
+
+/* card */
+.staff-card {
+  background: rgba(10,20,40,0.6);
+  backdrop-filter: blur(10px);
+
+  border-radius: 14px;
+  padding: 20px;
+  text-align: center;
+
+  border: 1px solid rgba(34,211,238,0.2);
+
+  transition: 0.3s;
+}
+
+.staff-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 20px rgba(34,211,238,0.3);
+}
+
+/* avatar */
+.avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: transparent;
+  margin: auto;
+  margin-bottom: 12px;
+}
+
+/* name */
+.staff-name {
+  font-weight: bold;
+}
+
+/* role tag */
+.staff-role {
+  font-size: 13px;
+  opacity: 0.7;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+  <div>Crabby Events</div>
+
+  <div class="nav-links">
+    <a href="index.html">Index</a>
+    <a href="home.html">Home</a>
+    <a href="apply.html">Apply</a>
+    <a href="forms.html">Forms</a>
+    <a href="#">Staff</a>
+  </div>
+</div>
+
+<!-- HEADER -->
+<section class="header">
+  <h1>Meet the <span>Staff Team</span></h1>
+</section>
+
+<!-- OWNERS -->
+<section class="staff-section">
+  <h2 class="role-title">Owners</h2>
+
+  <div class="staff-grid">
+    <div class="staff-card">
+    <img class="avatar" src="https://mc-heads.net/head/Obama8694">
+      <div class="staff-name">Crabby</div>
+      <div class="staff-role">Owner</div>
+    </div>
+  </div>
+</section>
+
+<!-- ADMINS -->
+<section class="staff-section">
+  <h2 class="role-title">Admins</h2>
+
+  <div class="staff-grid">
+    <div class="staff-card">
+    <img class="avatar" src="https://mc-heads.net/head/PhantomExplores">
+      <div class="staff-name">PhantomExplores / Cross</div>
+      <div class="staff-role">Head Admin</div>
+    </div>
+
+    <div class="staff-card">
+    <img class="avatar" src="https://mc-heads.net/head/Kessoky">
+      <div class="staff-name">HitoriGotah / Kessoky</div>
+      <div class="staff-role">Admin Advisor</div>
+    </div>
+  </div>
+</section>
+
+<!-- MODERATORS -->
+<section class="staff-section">
+  <h2 class="role-title">Admins</h2>
+
+  <div class="staff-grid">
+    <div class="staff-card">
+    <img class="avatar" src="https://mc-heads.net/head/OrcaForever">
+      <div class="staff-name">OrcaForever</div>
+      <div class="staff-role">Head Production</div>
+    </div>
+
+    <div class="staff-card">
+    <img class="avatar" src="https://mc-heads.net/head/pigp0p">
+      <div class="staff-name">pigp0p</div>
+      <div class="staff-role">Moderator</div>
+    </div>
+
+    <div class="staff-card">
+    <img class="avatar" src="https://mc-heads.net/head/KapiMC">
+      <div class="staff-name">KapiMC</div>
+      <div class="staff-role">Production</div>
+    </div>
+
+        <div class="staff-card">
+    <img class="avatar" src="https://mc-heads.net/head/Puggggamer">
+      <div class="staff-name">Puggggamer</div>
+      <div class="staff-role">Production</div>
+    </div>
+
+        <div class="staff-card">
+    <img class="avatar" src="https://mc-heads.net/head/Krulesilence">
+      <div class="staff-name">Japplesauce / Krulesilence</div>
+      <div class="staff-role">Moderator</div>
+    </div>
+
+        <div class="staff-card">
+    <img class="avatar" src="https://mc-heads.net/head/redn">
+      <div class="staff-name">Redn</div>
+      <div class="staff-role">Production</div>
+    </div>
+
+        <div class="staff-card">
+    <img class="avatar" src="https://mc-heads.net/head/alphadarkman">
+      <div class="staff-name">alphadarkman</div>
+      <div class="staff-role">Production + Coder</div>
+    </div>
+  </div>
+</section>
+<!-- DEVELOPERS -->
+<section class="staff-section">
+  <h2 class="role-title">Developers</h2>
+
+  <div class="staff-grid">
+    <div class="staff-card">
+    <img class="avatar" src="https://mc-heads.net/head/SUSRADIST">
+      <div class="staff-name">SUSRADIST</div>
+      <div class="staff-role">Head Developer</div>
+    </div>
+
+    <div class="staff-card">
+    <img class="avatar" src="https://mc-heads.net/head/TheDGamer5108">
+      <div class="staff-name">TheDGamer5108</div>
+      <div class="staff-role">Developer</div>
+    </div>
+        <div class="staff-card">
+    <img class="avatar" src="https://mc-heads.net/head/Jinnati">
+      <div class="staff-name">Jinnati</div>
+      <div class="staff-role">Developer</div>
+    </div>
+        <div class="staff-card">
+    <img class="avatar" src="https://mc-heads.net/head/archiex1">
+      <div class="staff-name">archiex1</div>
+      <div class="staff-role">Developer</div>
+    </div>
+        <div class="staff-card">
+    <img class="avatar" src="https://mc-heads.net/head/tixcy54">
+      <div class="staff-name">tixcy54</div>
+      <div class="staff-role">Developer</div>
+    </div>
+  </div>
+</section>
+</body>
+</html>
